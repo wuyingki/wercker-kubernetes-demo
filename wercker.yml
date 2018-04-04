@@ -21,6 +21,18 @@ build:
         password: $DOCKERHUB_PASSWORD
         repository: $DOCKERHUB_REPO 
 
+deploy-to-kubernetes:
+    box: python:2.7
+    steps:
+
+    # https://github.com/wercker/step-bash-template
+    # This Wercker step will look for files in our repo with a .template extension.
+    # It will expand any environment variables in those files, then remove the
+    # template extension.
+    
+    - bash-template
+       1. kubernetes_deployment.yml.template
+       2. kubernetes_service.yml.template
     - script:
         name: Prepare Kubernetes files
         code: |
