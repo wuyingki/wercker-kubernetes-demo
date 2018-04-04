@@ -21,7 +21,7 @@ build:
         password: $DOCKERHUB_PASSWORD
         repository: $DOCKERHUB_REPO 
 
-deploy-to-kubernetes:
+deploy-to-k8s:
     box: python:2.7
     steps:
 
