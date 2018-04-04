@@ -20,3 +20,19 @@ build:
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD
         repository: $DOCKERHUB_REPO 
+
+# The step above should leave us with a Kubernetes service and deployment yml files.
+# We'll create a directory to move them to.
+   - script:
+        name: Prepare Kubernetes files
+        code: |
+        mkdir $WERCKER_OUTPUT_DIR/kubernetes
+        mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
+    
+    - kubectl:
+        name: deploy to kubernetes
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: apply -f $WERCKER_OUTPUT_DIR/kubernetes
