@@ -45,4 +45,4 @@ deploy-to-k8s:
         username: $KUBERNETES_USERNAME
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f $WERCKER_OUTPUT_DIR/kubernetes
+        command: apply --token=$KUBERNETES_TOKEN -f $WERCKER_OUTPUT_DIR/kubernetes
