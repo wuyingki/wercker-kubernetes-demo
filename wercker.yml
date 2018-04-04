@@ -42,7 +42,7 @@ deploy-to-k8s:
     - kubectl:
         name: deploy to kubernetes
         server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
+        # username: $KUBERNETES_USERNAME
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: apply --token=$KUBERNETES_TOKEN -f $WERCKER_OUTPUT_DIR/kubernetes
