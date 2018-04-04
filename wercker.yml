@@ -31,8 +31,8 @@ deploy-to-k8s:
     # template extension.
     
     - bash-template
-       1. kubernetes_deployment.yml.template
-       2. kubernetes_service.yml.template
+    #   1. kubernetes_deployment.yml.template
+    #   2. kubernetes_service.yml.template
     - script:
         name: Prepare Kubernetes files
         code: |
